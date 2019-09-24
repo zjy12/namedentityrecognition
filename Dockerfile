@@ -1,11 +1,11 @@
-From ubuntu:18.04
+FROM multiarch/ubuntu-debootstrap:armhf-bionic
 ENV LANG C.UTF-8
 WORKDIR /home
 RUN apt-get update
 RUN apt-get install wget zip python3-pip libsm6 libxrender1 libxext-dev gcc -y
 WORKDIR /usr/local/
-RUN wget https://repo.ctbiyi.com:6443/repository/ai-ff/biyi_common/jdk-8u221-linux-x64.tar.gz
-RUN tar xzvf jdk-8u221-linux-x64.tar.gz
+RUN wget https://repo.ctbiyi.com:6443/repository/ai-ff/biyi_common/jdk-8u221-linux-arm64-vfp-hflt.tar.gz
+RUN tar xzvf jdk-8u221-linux-arm64-vfp-hflt.tar.gz
 ENV JAVA_HOME=/usr/local/jdk1.8.0_221
 ENV PATH=${JAVA_HOME}/bin:$PATH
 ENV CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
